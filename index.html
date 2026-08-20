@@ -31,6 +31,7 @@
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#about">About</a>
+          <a href="blog/">Blog</a>
           <a href="#contact">Contact</a>
           <a href="resume.pdf" class="nav-cta" target="_blank" rel="noopener">Résumé</a>
         </nav>
@@ -115,6 +116,7 @@
               <div class="project-row">
                 <div class="project-main">
                   <h3>Thalamus</h3>
+                    <p class="project-client">For <a href="https://levitatedata.com/" target="_blank" rel="noopener">Levitate Data</a></p>
                   <p>
                     An enterprise RAG platform. Tenants upload large document
                     sets and ask questions in plain English; Thalamus runs
@@ -140,7 +142,37 @@
             <article class="project reveal">
               <div class="project-row">
                 <div class="project-main">
+                  <h3>Deloitte Internal RAG</h3>
+                    <p class="project-client">For Deloitte</p>
+                  <p>
+                    Search and chat for Deloitte consultants, across the
+                    knowledge silos they already use: SharePoint, Confluence,
+                    Azure files and ServiceNow. An ingestion pipeline chunks
+                    and embeds documents into Azure AI Search; answers come
+                    from Azure OpenAI, grounded with citations, and Entra ID
+                    decides what each person is allowed to see. Deployed
+                    serverless on Azure Container Apps, with the whole stack
+                    defined as Bicep.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">Enterprise RAG</span>
+                  <ul class="chips">
+                    <li>Python</li>
+                    <li>FastAPI</li>
+                    <li>LangChain</li>
+                    <li>Azure OpenAI</li>
+                    <li>Azure AI Search</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
                   <h3>Aletheia</h3>
+                    <p class="project-client">For <a href="https://levitatedata.com/" target="_blank" rel="noopener">Levitate Data</a></p>
                   <p>
                     Built for legal teams who have to sit through court
                     depositions. It transcribes the recordings with speaker
@@ -167,6 +199,7 @@
               <div class="project-row">
                 <div class="project-main">
                   <h3>ConversaIQ</h3>
+                    <p class="project-client">Webify Ventures · Idraak Labs</p>
                   <p>
                     A desktop app that sits in on live sales and support
                     calls. It transcribes both sides as the call happens,
@@ -192,6 +225,7 @@
               <div class="project-row">
                 <div class="project-main">
                   <h3>Resume Intel</h3>
+                    <p class="project-client">Webify Ventures · Idraak Labs</p>
                   <p>
                     A resume and cover-letter builder with AI in the loop.
                     Upload a resume, paste a job posting, and it rewrites
@@ -217,6 +251,7 @@
               <div class="project-row">
                 <div class="project-main">
                   <h3>AI Voice Assistant · Even Realities G2</h3>
+                    <p class="project-client">For Even Realities</p>
                   <p>
                     A voice assistant for the Even Realities G2 smart
                     glasses. You talk, the mic streams to OpenAI's Realtime
@@ -239,27 +274,235 @@
               </div>
             </article>
 
-            <article class="project reveal">
+                        <article class="project reveal">
               <div class="project-row">
                 <div class="project-main">
-                  <h3>AI Voice Agent Platform</h3>
+                  <h3>Tabsy</h3>
+                    <p class="project-client">Freelance project</p>
                   <p>
-                    Answers phone calls with AI. Incoming calls bridge to
-                    OpenAI or Deepgram realtime models, which transcribe,
-                    think, and talk back like a person would. There's a
-                    dashboard for listening in on live calls, reading
-                    transcripts, managing prompts, and wiring up tools the
-                    agent can call.
+                    A note-taking desktop app where the AI runs on your
+                    machine. Pull any GGUF model from Hugging Face and Tabsy
+                    runs it through llama.cpp for private summaries, chat and
+                    idea expansion inside your notes. A local RAG pipeline
+                    indexes everything into Chroma, so you can ask questions
+                    across your whole knowledge base. Slack threads and
+                    Discord messages import as notes too.
                   </p>
                 </div>
                 <div class="project-side">
-                  <span class="project-tag">Voice AI</span>
+                  <span class="project-tag">Desktop App</span>
                   <ul class="chips">
-                    <li>Node.js</li>
-                    <li>Fastify</li>
-                    <li>Twilio</li>
-                    <li>OpenAI Realtime</li>
-                    <li>Deepgram</li>
+                    <li>Electron</li>
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>llama.cpp</li>
+                    <li>Chroma</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>Lyfe in Color</h3>
+                    <p class="project-client">For Slynerds</p>
+                  <p>
+                    Turns family photos into printable coloring-book pages
+                    and cover art. A guided flow takes you from upload
+                    through theme selection to a finished, orderable book.
+                    The Express backend drives OpenAI's image API with
+                    streaming progress, batching, retries and safety-error
+                    handling; Supabase covers auth, data and an admin
+                    dashboard for orders and galleries.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">Web App</span>
+                  <ul class="chips">
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Express</li>
+                    <li>OpenAI API</li>
+                    <li>Supabase</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+                        <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>First Rule Contract Manager</h3>
+                  <p class="project-client">For First Rule</p>
+                  <p>
+                    Contract review automation for construction teams. AI
+                    reads the contracts and surfaces what matters, so teams
+                    don't have to dig through them line by line.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">Contract AI</span>
+                  <ul class="chips">
+                    <li>AI</li>
+                    <li>Automation</li>
+                    <li>Web App</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+<article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>Costco Control Tower</h3>
+                    <p class="project-client">For Costco</p>
+                  <p>
+                    Replaced a manual Excel/VBA workflow for tracking sales
+                    orders. Users enter an order once and the app generates
+                    the five downstream artifacts people used to maintain by
+                    hand: Sales WIP, Photoshoot Log, Promo Tracker, Global
+                    Program Tracker and Biz Recap decks. Includes an
+                    approval inbox, Excel and PPTX export pipelines, and a
+                    Dataverse / SharePoint / Power Automate handoff package
+                    for production migration.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">Internal Tool</span>
+                  <ul class="chips">
+                    <li>Next.js 16</li>
+                    <li>React 19</li>
+                    <li>SheetJS</li>
+                    <li>pptxgenjs</li>
+                    <li>Power Platform</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>Building Healthcare Solutions</h3>
+                    <p class="project-client">For Slynerds</p>
+                  <p>
+                    Marketing site and online store for a clean-air
+                    technology company (Saniuvent vent-stack treatment). A
+                    product catalog with an interactive US installer map,
+                    secure checkout taking both card and ACH payments, a
+                    role-based admin dashboard for orders, and a
+                    transactional email system with unsubscribe and
+                    suppression handling. Postgres schema and Supabase Edge
+                    Functions underneath.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">E-commerce</span>
+                  <ul class="chips">
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Supabase</li>
+                    <li>Authorize.net</li>
+                    <li>Postgres</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>GRPO-Math LLM</h3>
+                    <p class="project-client">Personal project</p>
+                  <p>
+                    Taught Qwen 2.5 3B to reason through math problems using
+                    DeepSeek's GRPO reinforcement learning technique. Base
+                    chat model in, step-by-step reasoning model out, trained
+                    and evaluated on math problem sets.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">ML Research</span>
+                  <ul class="chips">
+                    <li>Python</li>
+                    <li>GRPO RL</li>
+                    <li>Qwen 2.5</li>
+                    <li>Reasoning</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>FactFinderLLM</h3>
+                    <p class="project-client">Personal project</p>
+                  <p>
+                    R&amp;D project on making LLMs hallucinate less on a
+                    given dataset, using a custom multi-stage RAG pipeline
+                    combined with model fine-tuning. Demonstrated on
+                    WikiLeaks and FOIA request data, and included generating
+                    a synthetic dataset with LLMs to train on.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">R&amp;D</span>
+                  <ul class="chips">
+                    <li>Python</li>
+                    <li>RAG</li>
+                    <li>Fine-tuning</li>
+                    <li>Synthetic Data</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+                        <article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>Simple Simple C</h3>
+                  <p class="project-client">Personal project</p>
+                  <p>
+                    A small custom programming language and its compiler,
+                    written with Flex, Bison and LLVM. It compiles to C++
+                    and LLVM IR, and I kept adding advanced features to it,
+                    mostly around array manipulation.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">Compilers</span>
+                  <ul class="chips">
+                    <li>C++</li>
+                    <li>Flex</li>
+                    <li>Bison</li>
+                    <li>LLVM</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+<article class="project reveal">
+              <div class="project-row">
+                <div class="project-main">
+                  <h3>Traffic Simulator</h3>
+                    <p class="project-client">Personal project</p>
+                  <p>
+                    A tile-based editor for building custom maps with
+                    simulated traffic signals and the mechanics that go with
+                    them. Cars find their way with A* path finding, and the
+                    viewport zooms smoothly from overview down to street
+                    level. Written in C++ with SFML and ImGui.
+                  </p>
+                </div>
+                <div class="project-side">
+                  <span class="project-tag">Systems</span>
+                  <ul class="chips">
+                    <li>C++</li>
+                    <li>SFML</li>
+                    <li>ImGui</li>
+                    <li>A*</li>
                   </ul>
                 </div>
               </div>
@@ -269,60 +512,49 @@
           <div class="more-work reveal">
             <h3 class="more-title">More work</h3>
             <ul class="more-list">
+              
               <li>
-                <span>Deloitte Internal RAG</span>
+                <span>SMART POS</span>
                 <small
-                  >Enterprise search &amp; chat across SharePoint, Confluence
-                  and Azure (Azure OpenAI, AI Search, Bicep)</small
+                  >Point-of-sale system in Next.js, TypeScript and Tailwind,
+                  on Postgres with Drizzle and Lucia auth</small
                 >
               </li>
               <li>
-                <span>Tabsy</span>
+                <span>Hide Stream</span>
                 <small
-                  >Note-taking desktop app with on-device LLMs, local RAG and
-                  Slack / Discord integrations</small
+                  >Steganography tool that hides files inside audio and
+                  images, using several different techniques</small
+                >
+              </li>
+              
+              <li>
+                <span>AI Subtitle Maker</span>
+                <small
+                  >Generates subtitles from video with ffmpeg and the
+                  Faster-Whisper speech-to-text model</small
                 >
               </li>
               <li>
-                <span>Lyfe in Color</span>
+                <span>Pac-Man in Assembly</span>
                 <small
-                  >Turns family photos into printable coloring books (React,
-                  Express, OpenAI image API)</small
+                  >Pac-Man in pure x86 NASM, with custom interrupt handlers
+                  and map loading from files</small
                 >
               </li>
               <li>
-                <span>Costco Control Tower</span>
+                <span>MagarMunch</span>
                 <small
-                  >Sales-order tracking that replaced an Excel macro workflow
-                  (Next.js, SheetJS, Power Platform)</small
+                  >Online food ordering and delivery system: Next.js
+                  restaurant front, Express and MSSQL backend</small
                 >
               </li>
               <li>
-                <span>Building Healthcare Solutions</span>
+                <span>GPT-3 Frontend (Wordiosa)</span>
                 <small
-                  >Marketing site &amp; e-commerce for a clean-air technology
-                  company (React, Supabase, Authorize.net)</small
-                >
-              </li>
-              <li>
-                <span>GRPO-Math LLM</span>
-                <small
-                  >Taught Qwen 2.5 3B to reason through math problems using
-                  DeepSeek's GRPO reinforcement learning</small
-                >
-              </li>
-              <li>
-                <span>FactFinderLLM</span>
-                <small
-                  >R&amp;D into reducing LLM hallucinations with a multi-stage
-                  RAG pipeline and fine-tuning</small
-                >
-              </li>
-              <li>
-                <span>Traffic Simulator</span>
-                <small
-                  >Tile-based traffic editor and simulation with A* path
-                  finding (C++, SFML, ImGui)</small
+                  >A frontend for the OpenAI GPT-3 API, built during the
+                  developer preview for my short-lived copywriting
+                  venture</small
                 >
               </li>
             </ul>

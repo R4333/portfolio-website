@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog · Muhammad Abdullah</title>
+    <meta
+      name="description"
+      content="Notes and write-ups by Muhammad Abdullah, a full-stack engineer building AI-powered products."
+    />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="site-nav" id="site-nav">
+      <div class="container nav-inner">
+        <a href="../index.html#top" class="wordmark">Muhammad&nbsp;Abdullah</a>
+        <nav class="nav-links" id="nav-links">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#experience">Experience</a>
+          <a href="../index.html#about">About</a>
+          <a href="index.html">Blog</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../resume.pdf" class="nav-cta" target="_blank" rel="noopener">Résumé</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="blog-head">
+        <div class="container">
+          <p class="kicker">Blog</p>
+          <h1 class="blog-title">Notes and write-ups</h1>
+          <p class="blog-sub">
+            Occasional posts about building AI products, the things that broke
+            along the way, and the occasional detour into compilers and radios.
+          </p>
+        </div>
+      </section>
+
+      <section class="section blog-section">
+        <div class="container">
+          <ol class="blog-list" id="blog-list"></ol>
+          <p class="blog-empty" id="blog-empty" hidden>
+            No posts yet. Check back soon.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Muhammad Abdullah</span>
+        <a href="../index.html#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+    <script>
+      const list = document.getElementById("blog-list");
+      fetch("../posts/index.json")
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((posts) => {
+          posts.sort((a, b) => b.date.localeCompare(a.date));
+          if (!posts.length) {
+            document.getElementById("blog-empty").hidden = false;
+            return;
+          }
+          for (const p of posts) {
+            const li = document.createElement("li");
+            const d = new Date(p.date + "T00:00:00");
+            const date = d.toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            });
+            li.innerHTML =
+              '<a class="blog-row" href="post.html?slug=' +
+              encodeURIComponent(p.slug) +
+              '"><span class="blog-date"></span><span class="blog-entry"><h2></h2><p></p></span></a>';
+            li.querySelector(".blog-date").textContent = date;
+            li.querySelector("h2").textContent = p.title;
+            li.querySelector("p").textContent = p.description || "";
+            list.appendChild(li);
+          }
+        })
+        .catch(() => {
+          document.getElementById("blog-empty").hidden = false;
+        });
+    </script>
+  </body>
+</html>

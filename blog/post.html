@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog · Muhammad Abdullah</title>
+    <meta
+      name="description"
+      content="A blog post by Muhammad Abdullah, full-stack engineer."
+    />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="site-nav" id="site-nav">
+      <div class="container nav-inner">
+        <a href="../index.html#top" class="wordmark">Muhammad&nbsp;Abdullah</a>
+        <nav class="nav-links" id="nav-links">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#experience">Experience</a>
+          <a href="../index.html#about">About</a>
+          <a href="index.html">Blog</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../resume.pdf" class="nav-cta" target="_blank" rel="noopener">Résumé</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <article class="post">
+        <div class="container post-container">
+          <p class="kicker"><a href="index.html">← All posts</a></p>
+          <h1 id="post-title">Loading…</h1>
+          <p class="post-meta" id="post-meta"></p>
+          <div class="post-body" id="post-body"></div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Muhammad Abdullah</span>
+        <a href="../index.html#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script>
+      const slug = new URLSearchParams(location.search).get("slug");
+
+      const fail = () => {
+        document.getElementById("post-title").textContent = "Post not found";
+        document.getElementById("post-meta").textContent = "";
+        document.getElementById("post-body").innerHTML =
+          '<p>That post does not exist. <a href="index.html">Back to the blog</a>.</p>';
+      };
+
+      if (!slug) {
+        fail();
+      } else {
+        fetch("../posts/index.json")
+          .then((r) => (r.ok ? r.json() : Promise.reject()))
+          .then((posts) => {
+            const meta = posts.find((p) => p.slug === slug);
+            if (!meta) return Promise.reject();
+            const d = new Date(meta.date + "T00:00:00");
+            document.getElementById("post-title").textContent = meta.title;
+            document.getElementById("post-meta").textContent =
+              d.toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              });
+            document.title = meta.title + " · Muhammad Abdullah";
+            return fetch("../posts/" + slug + ".md").then((r) =>
+              r.ok ? r.text() : Promise.reject()
+            );
+          })
+          .then((md) => {
+            document.getElementById("post-body").innerHTML =
+              DOMPurify.sanitize(marked.parse(md));
+          })
+          .catch(fail);
+      }
+    </script>
+  </body>
+</html>
