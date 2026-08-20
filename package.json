@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-website",
+  "private": true,
+  "description": "Muhammad Abdullah's portfolio and blog. Static site, no build step.",
+  "engines": {
+    "node": "24.x"
+  }
+}
